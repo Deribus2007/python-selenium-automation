@@ -16,17 +16,22 @@ driver.maximize_window()
 driver.get("https://www.target.com")
 
 # click Sign In button
-driver.find_element(By.XPATH, "//span[@class='styles__LinkText-sc-1e1g60c-3 dZfgoT h-margin-r-x3']").click()
+driver.find_element(By.XPATH, "//*[@data-test='@web/AccountLink']").click()
 
 #Click SignIn from side navigation
-driver.find_element(By.XPATH, "//a[@data-test='accountNav-signIn']").click()
+driver.find_element(By.XPATH, "//*[@data-test='accountNav-signIn']").click()
 
 sleep(6)
 
 #verify
 #“Sign into your Target account” text is shown
-actual_text = driver.find_element(By.XPATH, "//h1[@class='styles__StyledHeading-sc-1xmf98v-0 styles__AuthHeading-sc-kz6dq2-2 jhKFiw kcHdEa']")
-actual_text.click()
+expected =  'Sign into your Target account'
+actual_text = driver.find_element(By.XPATH, "//h1[contains(@class, 'StyledHeading')]").text
+assert expected == actual_text, f"Expected {expected}, got {actual_text}"
+
+
 #SignIn button is shown to check for element’s presence, no need to assert here)
 
+# MAke sure login button is shown
+driver.find_element(By.ID, "'login")
 driver. quit()
