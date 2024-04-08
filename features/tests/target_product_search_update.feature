@@ -2,8 +2,7 @@
 
 Feature: Perform Target Product Search
 
-  Background:
-    Given I am on the Target website
+
 
   Scenario: Perform a product search and click the Search button
     Given I enter "$search_term" in the search bar

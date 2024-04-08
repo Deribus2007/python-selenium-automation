@@ -9,14 +9,8 @@ PRODUCT = (By.CSS_SELECTOR, ".product")
 CART_ICON = (By.ID, "nav-cart-count")
 
 
-# @given('I am on the Target website')
-# def step_impl(context):
-#     # Navigate to the Target website
-#     context.driver.get("https://www.target.com/")
-
-
 @when('I add a product to the cart')
-def step_impl(context):
+def add_product_to_cart(context):
     # Find and click on a product to add to the cart
     product = context.driver.find_element(*PRODUCT)
     product.click()
@@ -26,7 +20,7 @@ def step_impl(context):
 
 
 @then('I should see the product in the cart')
-def step_impl(context):
+def see_product_in_cart(context):
     # Verify that the cart contains the added product
     cart_count = int(context.driver.find_element(*CART_ICON).text)
     assert cart_count == 1, "Expected 1 item in the cart, but found {}".format(cart_count)

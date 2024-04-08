@@ -8,14 +8,8 @@ SEARCH_INPUT = (By.ID, "search")
 SEARCH_BUTTON = (By.ID, "searchButton")
 
 
-# @given('I am on the Target website')
-# def step_impl(context):
-#     # Navigate to the Target website
-#     context.driver.get("https://www.target.com/")
-
-
 @when('I enter "{search_term}" in the search bar')
-def step_impl(context, search_term):
+def search_term(context, search_term):
     # Enter the search term into the search input
     search_input = context.driver.find_element(*SEARCH_INPUT)
     search_input.clear()
@@ -23,7 +17,7 @@ def step_impl(context, search_term):
 
 
 @when('I click the Search button')
-def step_impl(context):
+def search_button(context):
     # Click the Search button
     search_button = context.driver.find_element(*SEARCH_BUTTON)
     search_button.click()
