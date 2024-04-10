@@ -14,7 +14,7 @@ def target_circle_page(context):
 
 
 @then('I should see 10 benefit boxes')
-def see_six_boxes_present(context):
+def see_ten_boxes_present(context):
     # Wait for the benefit boxes to load
    # WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located(BENEFIT_BOXES))
 
