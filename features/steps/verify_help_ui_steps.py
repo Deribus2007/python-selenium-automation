@@ -14,7 +14,7 @@ def target_help_page_open(context):
     # Navigate to the Target Help page
     context.driver.get("https://help.target.com/help")
 
-@then('I should see "{element_text}" text')
+@given('I should see "{element_text}" text')
 def element_text_on_page(context, element_text):
     # Verify the presence of the specified text
     element = context.driver.find_element(By.XPATH, f"//*[contains(text(), '{element_text}')]")

@@ -5,7 +5,7 @@ from time import sleep
 from webdriver_manager.core import driver
 
 @when('Click on Sign In Icon')
-def click_icon(context):
+def click_on_sign_in_icon(context):
     context.driver.find_element(By.CSS_SELECTOR, "span[class*='styles__LinkText']").click()
 
 def click_sign_in_icon(context):
