@@ -4,6 +4,9 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from time import sleep
 
+SEARCH_RESULT_HEADER = (By. XPATH, "//div[@data-test='resultsHeading']")
+
+
 # get the path to the ChromeDriver executable
 driver_path = ChromeDriverManager().install()
 
@@ -25,10 +28,9 @@ sleep(6)
 
 #Verification of product search succesful
 
-actual_results = driver.find_element(By.XPATH, "//div[@data-test='resultsHeading']").text
+actual_results = driver.find_element(*SEARCH_RESULT_HEADER).text
 
 assert 'juices' in actual_results, f'Error!: {actual_results}'
 
 print('Test case passed')
 
-driver(quit()

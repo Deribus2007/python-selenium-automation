@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 # Define locators
 SEARCH_INPUT = (By.ID, "search")
 SEARCH_BUTTON = (By.ID, "searchButton")
-
+SEARCH_RESULT = (By.ID, "searchResult")
 
 @when('I enter "{search_term}" in the search bar')
 def search_term(context, search_term):
@@ -23,8 +23,8 @@ def search_button(context):
     search_button.click()
 
 
-@then('I should see search results for "{search_term}"')
-def step_impl(context, search_term):
+@then('Verify search results for "{expected_item}"')
+def verify_search_results(context):
     # Wait for search results to appear
     WebDriverWait(context.driver, 10).until(
         EC.presence_of_element_located((By.XPATH, "//h1[contains(text(), 'results for')]")))
